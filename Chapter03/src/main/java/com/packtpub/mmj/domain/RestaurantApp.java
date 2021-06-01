@@ -29,15 +29,15 @@ public class RestaurantApp {
 
       // Data Creation for Restaurants
       List<Table> tableList = Arrays.asList(
-          new Table("Table 1", BigInteger.ONE, 6),
-          new Table("Table 2", BigInteger.valueOf(2), 4),
-          new Table("Table 3", BigInteger.valueOf(3), 2)
+              new Table("Table 1", BigInteger.ONE, 6),
+              new Table("Table 2", BigInteger.valueOf(2), 4),
+              new Table("Table 3", BigInteger.valueOf(3), 2)
       );
 
       // Add few restaurants using Service
       // Note: To raise an exception give same restaurant name to one of the below restaurant
       restaurantService
-          .add(new Restaurant("Big-O Restaurant", "1", Optional.ofNullable(tableList)));
+              .add(new Restaurant("Big-O Restaurant", "1", Optional.ofNullable(tableList)));
       restaurantService.add(new Restaurant("Pizza Shops", "2", Optional.empty()));
       restaurantService.add(new Restaurant("La Pasta", "3", Optional.empty()));
 
@@ -47,8 +47,8 @@ public class RestaurantApp {
       // Print the retrieved restaurants on console
       System.out.println("Restaurants List:");
       restaurants.stream()
-          .map(r -> String.format("Restaurant: %s", r))
-          .forEach(System.out::println);
+              .map(r -> String.format("Restaurant: %s", r))
+              .forEach(System.out::println);
     } catch (Exception ex) {
       System.out.println(String.format("Exception: %s", ex.getMessage()));
       // Exception Handling Code

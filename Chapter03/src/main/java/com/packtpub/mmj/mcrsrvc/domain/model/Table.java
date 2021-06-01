@@ -40,7 +40,7 @@ public class Table extends BaseEntity<BigInteger> {
   @Override
   public String toString() {
     return new StringBuilder("{id: ").append(id).append(", name: ")
-        .append(name).append(", capacity: ").append(capacity).append("}").toString();
+            .append(name).append(", capacity: ").append(capacity).append("}").toString();
   }
 
 }

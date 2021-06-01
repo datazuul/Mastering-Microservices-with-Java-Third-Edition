@@ -41,6 +41,6 @@ public class Restaurant extends BaseEntity<String> {
   @Override
   public String toString() {
     return new StringBuilder("{id: ").append(id).append(", name: ")
-        .append(name).append(", tables: ").append(tables).append("}").toString();
+            .append(name).append(", tables: ").append(tables).append("}").toString();
   }
 }

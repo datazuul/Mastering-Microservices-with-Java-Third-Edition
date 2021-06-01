@@ -25,7 +25,7 @@ public class RestaurantService extends BaseService<Restaurant, BigInteger> {
   public void add(Restaurant restaurant) throws Exception {
     if (restaurantRepository.containsName(restaurant.getName())) {
       throw new Exception(
-          String.format("There is already a product with the name - %s", restaurant.getName()));
+              String.format("There is already a product with the name - %s", restaurant.getName()));
     }
 
     if (restaurant.getName() == null || "".equals(restaurant.getName())) {
