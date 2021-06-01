@@ -38,7 +38,7 @@ public abstract class AbstractRestaurantControllerTests {
    * Test method for findById method
    */
   @Test
-  public void validResturantById() throws Exception {
+  public void validRestaurantById() throws Exception {
     Logger.getGlobal().info("Start validResturantById test");
     ResponseEntity<Entity> restaurant = restaurantController.findById(RESTAURANT);
 
@@ -47,17 +47,17 @@ public abstract class AbstractRestaurantControllerTests {
     Assert.assertNotNull(restaurant.getBody());
     Assert.assertEquals(RESTAURANT, restaurant.getBody().getId());
     Assert.assertEquals(RESTAURANT_NAME, restaurant.getBody().getName());
-    Logger.getGlobal().info("End validResturantById test");
+    Logger.getGlobal().info("End validRestaurantById test");
   }
 
   /**
    * Test method for findByName method
    */
   @Test
-  public void validResturantByName() throws Exception {
-    Logger.getGlobal().info("Start validResturantByName test");
+  public void validRestaurantByName() throws Exception {
+    Logger.getGlobal().info("Start validRestaurantByName test");
     ResponseEntity<Collection<Restaurant>> restaurants = restaurantController
-        .findByName(RESTAURANT_NAME);
+            .findByName(RESTAURANT_NAME);
     Logger.getGlobal().info("In validAccount test");
 
     Assert.assertEquals(HttpStatus.OK, restaurants.getStatusCode());
@@ -67,7 +67,7 @@ public abstract class AbstractRestaurantControllerTests {
     Restaurant restaurant = (Restaurant) restaurants.getBody().toArray()[0];
     Assert.assertEquals(RESTAURANT, restaurant.getId());
     Assert.assertEquals(RESTAURANT_NAME, restaurant.getName());
-    Logger.getGlobal().info("End validResturantByName test");
+    Logger.getGlobal().info("End validRestaurantByName test");
   }
 
   /**
