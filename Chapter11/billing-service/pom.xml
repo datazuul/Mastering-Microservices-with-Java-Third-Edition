@@ -9,7 +9,7 @@
     <version>PACKT-SNAPSHOT</version>
   </parent>
 
-  <name>online-table-reservation:billing-service</name>
+  <name>MicroServices: Chapter 11 (billing-service)</name>
   <artifactId>billing-service</artifactId>
   <packaging>jar</packaging>
   <properties>

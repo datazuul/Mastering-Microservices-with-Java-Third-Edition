@@ -8,7 +8,7 @@
     <artifactId>11537_chapter7</artifactId>
     <version>PACKT-SNAPSHOT</version>
   </parent>
-  <name>online-table-reservation:api-service</name>
+  <name>MicroServices: Chapter 7 (api-service)</name>
   <artifactId>api-service</artifactId>
   <packaging>jar</packaging>
 

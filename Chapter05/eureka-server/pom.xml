@@ -9,7 +9,7 @@
     <version>PACKT-SNAPSHOT</version>
   </parent>
 
-  <name>online-table-reservation:eureka-server</name>
+  <name>MicroServices: Chapter 5 (eureka-server)</name>
   <artifactId>eureka-server</artifactId>
   <packaging>jar</packaging>
   <properties>

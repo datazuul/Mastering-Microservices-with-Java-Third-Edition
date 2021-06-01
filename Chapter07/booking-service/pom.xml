@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>booking-service</artifactId>
-  <name>online-table-reservation:booking-service</name>
+  <name>MicroServices: Chapter 7 (booking-service)</name>
   <packaging>jar</packaging>
 
   <properties>

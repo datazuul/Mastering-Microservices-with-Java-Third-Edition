@@ -9,7 +9,7 @@
     <version>PACKT-SNAPSHOT</version>
   </parent>
 
-  <name>online-table-reservation:restaurant-service</name>
+  <name>MicroServices: Chapter 9 (restaurant-service)</name>
   <artifactId>restaurant-service</artifactId>
   <packaging>jar</packaging>
   <properties>

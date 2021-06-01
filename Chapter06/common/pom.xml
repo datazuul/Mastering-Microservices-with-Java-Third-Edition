@@ -10,7 +10,7 @@
   </parent>
   <artifactId>common</artifactId>
   <packaging>jar</packaging>
-  <name>online-table-reservation:common</name>
+  <name>MicroServices: Chapter 6 (common)</name>
   <dependencies>
     <dependency>
       <groupId>org.springframework.cloud</groupId>

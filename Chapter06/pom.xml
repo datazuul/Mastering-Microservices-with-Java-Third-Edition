@@ -7,7 +7,7 @@
   <groupId>com.packtpub.mmj</groupId>
   <artifactId>11537_chapter6</artifactId>
   <version>PACKT-SNAPSHOT</version>
-  <name>11537_chapter6</name>
+  <name>MicroServices: Chapter 6</name>
   <description>Master Microservices with Java 11, Chapter 6</description>
 
   <packaging>pom</packaging>

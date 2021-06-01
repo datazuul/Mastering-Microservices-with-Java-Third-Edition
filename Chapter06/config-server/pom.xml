@@ -9,7 +9,7 @@
     <version>PACKT-SNAPSHOT</version>
   </parent>
 
-  <name>online-table-reservation:config-server</name>
+  <name>MicroServices: Chapter 6 (config-server)</name>
   <artifactId>config-server</artifactId>
   <packaging>jar</packaging>
   <properties>

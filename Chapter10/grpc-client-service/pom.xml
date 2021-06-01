@@ -11,7 +11,7 @@
 
   <artifactId>grpc-client-service</artifactId>
   <packaging>jar</packaging>
-  <name>online-table-reservation:grpc-client-service</name>
+  <name>MicroServices: Chapter 10 (grpc-client-service)</name>
 
   <properties>
     <start-class>com.packtpub.mmj.grpc.client.GrpcClient</start-class>

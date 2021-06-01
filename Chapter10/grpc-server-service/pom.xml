@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>grpc-server-service</artifactId>
-  <name>online-table-reservation:grpc-server-service</name>
+  <name>MicroServices: Chapter 10 (grpc-server-service)</name>
   <packaging>jar</packaging>
 
   <properties>

@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>conductor-service</artifactId>
-  <name>online-table-reservation:conductor-service</name>
+  <name>MicroServices: Chapter 13 (conductor-service)</name>
   <packaging>jar</packaging>
 
   <properties>
