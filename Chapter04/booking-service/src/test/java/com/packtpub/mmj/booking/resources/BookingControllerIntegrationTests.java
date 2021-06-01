@@ -31,8 +31,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * Spring System test - by using @SpringApplicationConfiguration that picks up same configuration
- * that Spring Boot uses.
+ * Spring System test - by using @SpringApplicationConfiguration that picks up same configuration that Spring Boot uses.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BookingApp.class, webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -51,7 +50,7 @@ public class BookingControllerIntegrationTests {
   public void testGetById() {
     //API call
     Map<String, Object> response
-        = restTemplate.getForObject("http://localhost:" + port + "/v1/booking/1", Map.class);
+            = restTemplate.getForObject("http://localhost:" + port + "/v1/booking/1", Map.class);
 
     assertNotNull(response);
 
@@ -75,7 +74,7 @@ public class BookingControllerIntegrationTests {
     HttpHeaders headers = new HttpHeaders();
     HttpEntity<Object> entity = new HttpEntity<>(headers);
     ResponseEntity<Map> responseE = restTemplate
-        .exchange("http://localhost:" + port + "/v1/booking/99", HttpMethod.GET, entity, Map.class);
+            .exchange("http://localhost:" + port + "/v1/booking/99", HttpMethod.GET, entity, Map.class);
 
     assertNotNull(responseE);
 
@@ -94,8 +93,8 @@ public class BookingControllerIntegrationTests {
     Map<String, Object> uriVariables = new HashMap<>();
     uriVariables.put("name", "Booking");
     ResponseEntity<Map[]> responseE = restTemplate
-        .exchange("http://localhost:" + port + "/v1/booking/?name={name}", HttpMethod.GET, entity,
-            Map[].class, uriVariables);
+            .exchange("http://localhost:" + port + "/v1/booking/?name={name}", HttpMethod.GET, entity,
+                    Map[].class, uriVariables);
 
     assertNotNull(responseE);
 
@@ -138,11 +137,11 @@ public class BookingControllerIntegrationTests {
     headers.setContentType(MediaType.APPLICATION_JSON);
     objectMapper.findAndRegisterModules();
     HttpEntity<String> entity = new HttpEntity<>(objectMapper.writeValueAsString(requestBody),
-        headers);
+            headers);
 
     ResponseEntity<Map> responseE = restTemplate
-        .exchange("http://localhost:" + port + "/v1/booking", HttpMethod.POST, entity, Map.class,
-            Collections.EMPTY_MAP);
+            .exchange("http://localhost:" + port + "/v1/booking", HttpMethod.POST, entity, Map.class,
+                    Collections.EMPTY_MAP);
 
     assertNotNull(responseE);
 
@@ -151,7 +150,7 @@ public class BookingControllerIntegrationTests {
 
     //validating the newly created booking using API call
     Map<String, Object> response
-        = restTemplate.getForObject("http://localhost:" + port + "/v1/booking/3", Map.class);
+            = restTemplate.getForObject("http://localhost:" + port + "/v1/booking/3", Map.class);
 
     assertNotNull(response);
 
@@ -177,7 +176,7 @@ public class BookingControllerIntegrationTests {
     String date1 = response.get("date").toString();
     assertNotNull(date1);
     DateTimeFormatter DateFormatter = new DateTimeFormatterBuilder().parseCaseInsensitive()
-        .appendPattern("uuuu-MM-dd").toFormatter(Locale.ENGLISH);
+            .appendPattern("uuuu-MM-dd").toFormatter(Locale.ENGLISH);
     assertEquals(nowDate, LocalDate.parse(date1, DateFormatter));
 
     String time1 = response.get("time").toString();

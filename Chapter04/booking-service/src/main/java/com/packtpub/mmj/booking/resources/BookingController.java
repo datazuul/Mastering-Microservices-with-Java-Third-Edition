@@ -47,18 +47,17 @@ public class BookingController {
   }
 
   /**
-   * Fetch bookings with the specified name. A partial case-insensitive match is supported. So
-   * <code>http://.../booking/rest</code> will find any bookings with upper or lower case 'rest' in
-   * their name.
+   * Fetch bookings with the specified name. A partial case-insensitive match is supported. So <code>http://.../booking/rest</code> will find any bookings with upper or lower case 'rest' in their
+   * name.
    *
    * @param name
    * @return A non-null, non-empty collection of bookings.
    */
   @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<Collection<Booking>> findByName(@RequestParam("name") String name)
-      throws Exception {
+          throws Exception {
     logger.info(String.format("booking-service findByName() invoked:{} for {} ",
-        bookingService.getClass().getName(), name));
+            bookingService.getClass().getName(), name));
     name = name.trim().toLowerCase();
     Collection<Booking> bookings;
     try {
@@ -71,13 +70,11 @@ public class BookingController {
       throw ex;
     }
     return bookings.size() > 0 ? new ResponseEntity<>(bookings, HttpStatus.OK)
-        : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            : new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   /**
-   * Fetch bookings with the given id.
-   * <code>http://.../v1/bookings/{id}</code> will return booking with given
-   * id.
+   * Fetch bookings with the given id. <code>http://.../v1/bookings/{id}</code> will return booking with given id.
    *
    * @param id
    * @return A non-null, non-empty collection of bookings.
@@ -85,7 +82,7 @@ public class BookingController {
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public ResponseEntity<Entity> findById(@PathVariable("id") String id) throws Exception {
     logger.info(String.format("booking-service findById() invoked:{} for {} ",
-        bookingService.getClass().getName(), id));
+            bookingService.getClass().getName(), id));
     id = id.trim();
     Entity booking;
     try {
@@ -95,7 +92,7 @@ public class BookingController {
       throw ex;
     }
     return booking != null ? new ResponseEntity<>(booking, HttpStatus.OK)
-        : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            : new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   /**
@@ -107,8 +104,8 @@ public class BookingController {
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Booking> add(@RequestBody BookingVO bookingVO) throws Exception {
     logger.info(String
-        .format("booking-service add() invoked: %s for %s", bookingService.getClass().getName(),
-            bookingVO.getName()));
+            .format("booking-service add() invoked: %s for %s", bookingService.getClass().getName(),
+                    bookingVO.getName()));
     System.out.println(bookingVO);
     Booking booking = Booking.getDummyBooking();
     BeanUtils.copyProperties(bookingVO, booking);

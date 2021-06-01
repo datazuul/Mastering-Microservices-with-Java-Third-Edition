@@ -25,10 +25,10 @@ public class InMemBookingRepository implements BookingRepository<Booking, String
    */
   static {
     entities = new ConcurrentHashMap<>(Map.ofEntries(
-        new SimpleEntry<>("1",
-            new Booking("1", "Booking 1", "1", "1", "1", LocalDate.now(), LocalTime.now())),
-        new SimpleEntry<>("2",
-            new Booking("2", "Booking 2", "2", "2", "2", LocalDate.now(), LocalTime.now()))
+            new SimpleEntry<>("1",
+                    new Booking("1", "Booking 1", "1", "1", "1", LocalDate.now(), LocalTime.now())),
+            new SimpleEntry<>("2",
+                    new Booking("2", "Booking 2", "2", "2", "2", LocalDate.now(), LocalTime.now()))
     ));
   }
 
@@ -84,7 +84,7 @@ public class InMemBookingRepository implements BookingRepository<Booking, String
   @Override
   public boolean contains(String id) {
     throw new UnsupportedOperationException(
-        "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   /**
@@ -111,12 +111,12 @@ public class InMemBookingRepository implements BookingRepository<Booking, String
   public Collection<Booking> findByName(String name) throws BookingNotFoundException {
     int noOfChars = name.length();
     Collection<Booking> bookings = entities.entrySet().stream()
-        .filter(b -> b.getValue().getName().toLowerCase()
+            .filter(b -> b.getValue().getName().toLowerCase()
             .contains(name.toLowerCase().subSequence(0, noOfChars)))
-        .collect(toList())
-        .stream()
-        .map(k -> k.getValue())
-        .collect(toList());
+            .collect(toList())
+            .stream()
+            .map(k -> k.getValue())
+            .collect(toList());
     if (bookings != null && bookings.isEmpty()) {
       Object[] args = {name};
       throw new BookingNotFoundException("bookingNotFound", args);

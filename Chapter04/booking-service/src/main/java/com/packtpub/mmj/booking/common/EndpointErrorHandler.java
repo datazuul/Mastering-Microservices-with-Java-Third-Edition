@@ -22,23 +22,25 @@ public class EndpointErrorHandler {
 
   @ExceptionHandler(BookingNotFoundException.class)
   public ResponseEntity<ErrorInfo> handleRestaurantNotFoundException(HttpServletRequest request,
-      BookingNotFoundException ex, Locale locale) {
+          BookingNotFoundException ex, Locale locale) {
     ErrorInfo response = new ErrorInfo();
     response.setUrl(request.getRequestURL().toString());
     response.setMessage(messageSource.getMessage(ex.getMessage(), ex.getArgs(), locale));
     return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
   }
+
   @ExceptionHandler(DuplicateBookingException.class)
   public ResponseEntity<ErrorInfo> handleDuplicateRestaurantException(HttpServletRequest request,
-      DuplicateBookingException ex, Locale locale) {
+          DuplicateBookingException ex, Locale locale) {
     ErrorInfo response = new ErrorInfo();
     response.setUrl(request.getRequestURL().toString());
     response.setMessage(messageSource.getMessage(ex.getMessage(), ex.getArgs(), locale));
     return new ResponseEntity<>(response, HttpStatus.IM_USED);
   }
+
   @ExceptionHandler(InvalidBookingException.class)
   public ResponseEntity<ErrorInfo> handleInvalidRestaurantException(HttpServletRequest request,
-      InvalidBookingException ex, Locale locale) {
+          InvalidBookingException ex, Locale locale) {
     ErrorInfo response = new ErrorInfo();
     response.setUrl(request.getRequestURL().toString());
     response.setMessage(messageSource.getMessage(ex.getMessage(), ex.getArgs(), locale));

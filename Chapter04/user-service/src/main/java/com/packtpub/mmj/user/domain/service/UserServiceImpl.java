@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("userService")
 public class UserServiceImpl extends BaseService<User, String>
-    implements UserService {
+        implements UserService {
 
   private UserRepository<User, String> userRepository;
 
@@ -80,6 +80,6 @@ public class UserServiceImpl extends BaseService<User, String>
   @Override
   public Collection<User> findByCriteria(Map<String, ArrayList<String>> name) throws Exception {
     throw new UnsupportedOperationException(
-        "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 }

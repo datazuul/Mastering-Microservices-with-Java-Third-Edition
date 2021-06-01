@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("bookingService")
 public class BookingServiceImpl extends BaseService<Booking, String>
-    implements BookingService {
+        implements BookingService {
 
   private BookingRepository<Booking, String> bookingRepository;
 
@@ -81,6 +81,6 @@ public class BookingServiceImpl extends BaseService<Booking, String>
   @Override
   public Collection<Booking> findByCriteria(Map<String, ArrayList<String>> name) throws Exception {
     throw new UnsupportedOperationException(
-        "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 }

@@ -23,10 +23,8 @@ public class InMemUserRepository implements UserRepository<User, String> {
    */
   static {
     entities = new ConcurrentHashMap(Map.ofEntries(
-        new AbstractMap
-            .SimpleEntry("1", new User("1", "User Name 1", "Address 1", "City 1", "9999911111")),
-        new AbstractMap
-            .SimpleEntry("2", new User("1", "User Name 2", "Address 2", "City 2", "9999922222"))
+            new AbstractMap.SimpleEntry("1", new User("1", "User Name 1", "Address 1", "City 1", "9999911111")),
+            new AbstractMap.SimpleEntry("2", new User("1", "User Name 2", "Address 2", "City 2", "9999922222"))
     ));
   }
 
@@ -82,7 +80,7 @@ public class InMemUserRepository implements UserRepository<User, String> {
   @Override
   public boolean contains(String id) {
     throw new UnsupportedOperationException(
-        "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   /**
@@ -109,13 +107,13 @@ public class InMemUserRepository implements UserRepository<User, String> {
   public Collection<User> findByName(String name) throws Exception {
     int noOfChars = name.length();
     Collection<User> users = entities.entrySet()
-        .stream()
-        .filter(u -> u.getValue().getName().toLowerCase()
+            .stream()
+            .filter(u -> u.getValue().getName().toLowerCase()
             .contains(name.toLowerCase().subSequence(0, noOfChars)))
-        .collect(toList())
-        .stream()
-        .map(k -> k.getValue())
-        .collect(toList());
+            .collect(toList())
+            .stream()
+            .map(k -> k.getValue())
+            .collect(toList());
     if (users != null && users.isEmpty()) {
       Object[] args = {name};
       throw new UserNotFoundException("userNotFound", args);

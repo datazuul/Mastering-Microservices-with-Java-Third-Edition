@@ -19,7 +19,7 @@ public class RestaurantControllerTests extends AbstractRestaurantControllerTests
    * Test Restaurant Instance
    */
   protected static final Restaurant restaurantStaticInstance = new Restaurant(RESTAURANT,
-      RESTAURANT_NAME, RESTAURANT_ADDRESS, null);
+          RESTAURANT_NAME, RESTAURANT_ADDRESS, null);
   /**
    * Initialized Restaurant Repository
    */
@@ -28,7 +28,7 @@ public class RestaurantControllerTests extends AbstractRestaurantControllerTests
    * Initialized Restaurant Service
    */
   protected RestaurantService restaurantService = new RestaurantServiceImpl(
-      testRestaurantRepository);
+          testRestaurantRepository);
 
   /**
    * Setup method
@@ -42,7 +42,7 @@ public class RestaurantControllerTests extends AbstractRestaurantControllerTests
    * Test Repository
    */
   protected static class TestRestaurantRepository implements
-      RestaurantRepository<Restaurant, String> {
+          RestaurantRepository<Restaurant, String> {
 
     private Map<String, Restaurant> entities;
 
@@ -119,7 +119,7 @@ public class RestaurantControllerTests extends AbstractRestaurantControllerTests
     @Override
     public boolean contains(String id) {
       throw new UnsupportedOperationException(
-          "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+              "Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

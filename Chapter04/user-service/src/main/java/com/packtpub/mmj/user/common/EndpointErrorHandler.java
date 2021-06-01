@@ -22,23 +22,25 @@ public class EndpointErrorHandler {
 
   @ExceptionHandler(UserNotFoundException.class)
   public ResponseEntity<ErrorInfo> handleRestaurantNotFoundException(HttpServletRequest request,
-      UserNotFoundException ex, Locale locale) {
+          UserNotFoundException ex, Locale locale) {
     ErrorInfo response = new ErrorInfo();
     response.setUrl(request.getRequestURL().toString());
     response.setMessage(messageSource.getMessage(ex.getMessage(), ex.getArgs(), locale));
     return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
   }
+
   @ExceptionHandler(DuplicateUserException.class)
   public ResponseEntity<ErrorInfo> handleDuplicateRestaurantException(HttpServletRequest request,
-      DuplicateUserException ex, Locale locale) {
+          DuplicateUserException ex, Locale locale) {
     ErrorInfo response = new ErrorInfo();
     response.setUrl(request.getRequestURL().toString());
     response.setMessage(messageSource.getMessage(ex.getMessage(), ex.getArgs(), locale));
     return new ResponseEntity<>(response, HttpStatus.IM_USED);
   }
+
   @ExceptionHandler(InvalidUserException.class)
   public ResponseEntity<ErrorInfo> handleInvalidRestaurantException(HttpServletRequest request,
-      InvalidUserException ex, Locale locale) {
+          InvalidUserException ex, Locale locale) {
     ErrorInfo response = new ErrorInfo();
     response.setUrl(request.getRequestURL().toString());
     response.setMessage(messageSource.getMessage(ex.getMessage(), ex.getArgs(), locale));

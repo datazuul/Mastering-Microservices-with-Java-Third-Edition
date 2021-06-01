@@ -98,7 +98,7 @@ public class Booking extends BaseEntity<String> {
    * @param date
    */
   public Booking(String id, String name, String restaurantId, String tableId, String userId,
-      LocalDate date, LocalTime time) {
+          LocalDate date, LocalTime time) {
     super(id, name);
     this.restaurantId = restaurantId;
     this.tableId = tableId;
@@ -121,9 +121,9 @@ public class Booking extends BaseEntity<String> {
   @Override
   public String toString() {
     return String.format(
-        "{id: %s, name: %s, userId: %s, restaurantId: %s"
+            "{id: %s, name: %s, userId: %s, restaurantId: %s"
             + ", tableId: %s, date: %s, time: %s}",
-        id, name, userId, restaurantId,
-        tableId, date, time);
+            id, name, userId, restaurantId,
+            tableId, date, time);
   }
 }

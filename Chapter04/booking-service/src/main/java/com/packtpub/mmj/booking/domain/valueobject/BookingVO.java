@@ -34,7 +34,7 @@ public class BookingVO {
    * @param date
    */
   public BookingVO(String id, String name, String restaurantId, String tableId, String userId,
-      LocalDate date, LocalTime time) {
+          LocalDate date, LocalTime time) {
     this.id = id;
     this.name = name;
     this.restaurantId = restaurantId;
@@ -124,10 +124,10 @@ public class BookingVO {
   @Override
   public String toString() {
     return String.format(
-        "{id: %s, name: %s, userId: %s, restaurantId: %s"
+            "{id: %s, name: %s, userId: %s, restaurantId: %s"
             + ", tableId: %s, date: %s, time: %s}",
-        id, name, userId, restaurantId,
-        tableId, date, time);
+            id, name, userId, restaurantId,
+            tableId, date, time);
   }
 
   /**

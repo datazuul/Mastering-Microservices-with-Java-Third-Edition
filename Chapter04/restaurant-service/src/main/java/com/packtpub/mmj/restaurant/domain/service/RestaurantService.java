@@ -40,5 +40,5 @@ public interface RestaurantService {
    * @param name
    */
   public Collection<Restaurant> findByCriteria(Map<String, ArrayList<String>> name)
-      throws Exception;
+          throws Exception;
 }

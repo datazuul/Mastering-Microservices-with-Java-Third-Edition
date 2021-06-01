@@ -47,19 +47,17 @@ public class UserController {
   }
 
   /**
-   * Fetch users with the specified name. A partial case-insensitive match is supported. So
-   * <code>http://.../user/rest</code> will find any users with upper or lower case 'rest' in their
-   * name.
+   * Fetch users with the specified name. A partial case-insensitive match is supported. So <code>http://.../user/rest</code> will find any users with upper or lower case 'rest' in their name.
    *
    * @param name
    * @return A non-null, non-empty collection of users.
    */
   @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<Collection<User>> findByName(@RequestParam("name") String name)
-      throws Exception {
+          throws Exception {
     logger.info(String
-        .format("user-service findByName() invoked:{} for {} ", userService.getClass().getName(),
-            name));
+            .format("user-service findByName() invoked:{} for {} ", userService.getClass().getName(),
+                    name));
     name = name.trim().toLowerCase();
     Collection<User> users;
     try {
@@ -72,12 +70,11 @@ public class UserController {
       throw ex;
     }
     return users.size() > 0 ? new ResponseEntity<>(users, HttpStatus.OK)
-        : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            : new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   /**
-   * Fetch users with the given id. <code>http://.../v1/users/{id}</code> will return user with
-   * given id.
+   * Fetch users with the given id. <code>http://.../v1/users/{id}</code> will return user with given id.
    *
    * @param id
    * @return A non-null, non-empty collection of users.
@@ -85,8 +82,8 @@ public class UserController {
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public ResponseEntity<Entity> findById(@PathVariable("id") String id) throws Exception {
     logger.info(String
-        .format("user-service findById() invoked:{} for {} ", userService.getClass().getName(),
-            id));
+            .format("user-service findById() invoked:{} for {} ", userService.getClass().getName(),
+                    id));
     id = id.trim();
     Entity user;
     try {
@@ -96,7 +93,7 @@ public class UserController {
       throw ex;
     }
     return user != null ? new ResponseEntity<>(user, HttpStatus.OK)
-        : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            : new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   /**
@@ -108,8 +105,8 @@ public class UserController {
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<User> add(@RequestBody UserVO userVO) throws Exception {
     logger.info(String
-        .format("user-service add() invoked: %s for %s", userService.getClass().getName(),
-            userVO.getName()));
+            .format("user-service add() invoked: %s for %s", userService.getClass().getName(),
+                    userVO.getName()));
     System.out.println(userVO);
     User user = User.getDummyUser();
     BeanUtils.copyProperties(userVO, user);

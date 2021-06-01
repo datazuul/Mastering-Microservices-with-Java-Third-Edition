@@ -87,6 +87,6 @@ public class RestaurantVO {
   @Override
   public String toString() {
     return String.format("{id: %s, name: %s, address: %s, tables: %s}", this.getId(),
-        this.getName(), this.getAddress(), this.getTables());
+            this.getName(), this.getAddress(), this.getTables());
   }
 }

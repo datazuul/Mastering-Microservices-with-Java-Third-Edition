@@ -82,6 +82,6 @@ public class User extends BaseEntity<String> {
   @Override
   public String toString() {
     return String.format("{id: %s, name: %s, address: %s, city: %s, phoneNo: %s}",
-        id, name, address, city, phoneNo);
+            id, name, address, city, phoneNo);
   }
 }

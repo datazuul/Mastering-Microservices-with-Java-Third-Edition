@@ -47,18 +47,17 @@ public class RestaurantController {
   }
 
   /**
-   * Fetch restaurants with the specified name. A partial case-insensitive match is supported. So
-   * <code>http://.../restaurants/rest</code> will find any restaurants with upper or lower case
-   * 'rest' in their name.
+   * Fetch restaurants with the specified name. A partial case-insensitive match is supported. So <code>http://.../restaurants/rest</code> will find any restaurants with upper or lower case 'rest' in
+   * their name.
    *
    * @param name
    * @return A non-null, non-empty collection of restaurants.
    */
   @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<Collection<Restaurant>> findByName(@RequestParam("name") String name)
-      throws Exception {
+          throws Exception {
     logger.info(String.format("restaurant-service findByName() invoked:{} for {} ",
-        restaurantService.getClass().getName(), name));
+            restaurantService.getClass().getName(), name));
     name = name.trim().toLowerCase();
     Collection<Restaurant> restaurants;
     try {
@@ -68,16 +67,14 @@ public class RestaurantController {
       throw ex;
     } catch (Exception ex) {
       logger.log(Level.SEVERE, "Exception raised findByName REST Call", ex);
-      throw  ex;
+      throw ex;
     }
     return restaurants.size() > 0 ? new ResponseEntity<>(restaurants, HttpStatus.OK)
-        : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            : new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   /**
-   * Fetch restaurants with the given id.
-   * <code>http://.../v1/restaurants/{restaurant_id}</code> will return
-   * restaurant with given id.
+   * Fetch restaurants with the given id. <code>http://.../v1/restaurants/{restaurant_id}</code> will return restaurant with given id.
    *
    * @param id
    * @return A non-null, non-empty collection of restaurants.
@@ -85,7 +82,7 @@ public class RestaurantController {
   @RequestMapping(value = "/{restaurant_id}", method = RequestMethod.GET)
   public ResponseEntity<Entity> findById(@PathVariable("restaurant_id") String id) throws Exception {
     logger.info(String.format("restaurant-service findById() invoked:{} for {} ",
-        restaurantService.getClass().getName(), id));
+            restaurantService.getClass().getName(), id));
     id = id.trim();
     Entity restaurant;
     try {
@@ -95,7 +92,7 @@ public class RestaurantController {
       throw ex;
     }
     return restaurant != null ? new ResponseEntity<>(restaurant, HttpStatus.OK)
-        : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            : new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   /**
@@ -107,7 +104,7 @@ public class RestaurantController {
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Restaurant> add(@RequestBody RestaurantVO restaurantVO) throws Exception {
     logger.info(String.format("restaurant-service add() invoked: %s for %s",
-        restaurantService.getClass().getName(), restaurantVO.getName()));
+            restaurantService.getClass().getName(), restaurantVO.getName()));
     System.out.println(restaurantVO);
     Restaurant restaurant = Restaurant.getDummyRestaurant();
     BeanUtils.copyProperties(restaurantVO, restaurant);

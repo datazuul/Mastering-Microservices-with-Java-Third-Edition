@@ -16,7 +16,7 @@ public class Table extends BaseEntity<BigInteger> {
    * @param capacity
    */
   public Table(@JsonProperty("name") String name, @JsonProperty("id") BigInteger id,
-      @JsonProperty("capacity") int capacity) {
+          @JsonProperty("capacity") int capacity) {
     super(id, name);
     this.capacity = capacity;
   }
@@ -42,7 +42,7 @@ public class Table extends BaseEntity<BigInteger> {
   @Override
   public String toString() {
     return String.format("{id: %s, name: %s, capacity: %s}",
-        this.getId(), this.getName(), this.getCapacity());
+            this.getId(), this.getName(), this.getCapacity());
   }
 
 }

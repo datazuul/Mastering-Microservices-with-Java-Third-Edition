@@ -23,29 +23,29 @@ public class InMemRestaurantRepository implements RestaurantRepository<Restauran
    */
   static {
     entities = new ConcurrentHashMap<>(Map.ofEntries(
-        new SimpleEntry<>("1",
-            new Restaurant("Le Meurice", "1", "228 rue de Rivoli, 75001, Paris", Optional.empty())),
-        new SimpleEntry<>("2",
-            new Restaurant("L'Ambroisie", "2", "9 place des Vosges, 75004, Paris",
-                Optional.empty())),
-        new SimpleEntry<>("3",
-            new Restaurant("Arpège", "3", "84, rue de Varenne, 75007, Paris", Optional.empty())),
-        new SimpleEntry<>("4", new Restaurant("Alain Ducasse au Plaza Athénée", "4",
-            "25 avenue de Montaigne, 75008, Paris", Optional.empty())),
-        new SimpleEntry<>("5",
-            new Restaurant("Pavillon LeDoyen", "5", "1, avenue Dutuit, 75008, Paris",
-                Optional.empty())),
-        new SimpleEntry<>("6",
-            new Restaurant("Pierre Gagnaire", "6", "6, rue Balzac, 75008, Paris",
-                Optional.empty())),
-        new SimpleEntry<>("7",
-            new Restaurant("L'Astrance", "7", "4, rue Beethoven, 75016, Paris", Optional.empty())),
-        new SimpleEntry<>("8",
-            new Restaurant("Pré Catelan", "8", "Bois de Boulogne, 75016, Paris", Optional.empty())),
-        new SimpleEntry<>("9",
-            new Restaurant("Guy Savoy", "9", "18 rue Troyon, 75017, Paris", Optional.empty())),
-        new SimpleEntry<>("10", new Restaurant("Le Bristol", "10",
-            "112, rue du Faubourg St Honoré, 8th arrondissement, Paris", Optional.empty()))));
+            new SimpleEntry<>("1",
+                    new Restaurant("Le Meurice", "1", "228 rue de Rivoli, 75001, Paris", Optional.empty())),
+            new SimpleEntry<>("2",
+                    new Restaurant("L'Ambroisie", "2", "9 place des Vosges, 75004, Paris",
+                            Optional.empty())),
+            new SimpleEntry<>("3",
+                    new Restaurant("Arpège", "3", "84, rue de Varenne, 75007, Paris", Optional.empty())),
+            new SimpleEntry<>("4", new Restaurant("Alain Ducasse au Plaza Athénée", "4",
+                    "25 avenue de Montaigne, 75008, Paris", Optional.empty())),
+            new SimpleEntry<>("5",
+                    new Restaurant("Pavillon LeDoyen", "5", "1, avenue Dutuit, 75008, Paris",
+                            Optional.empty())),
+            new SimpleEntry<>("6",
+                    new Restaurant("Pierre Gagnaire", "6", "6, rue Balzac, 75008, Paris",
+                            Optional.empty())),
+            new SimpleEntry<>("7",
+                    new Restaurant("L'Astrance", "7", "4, rue Beethoven, 75016, Paris", Optional.empty())),
+            new SimpleEntry<>("8",
+                    new Restaurant("Pré Catelan", "8", "Bois de Boulogne, 75016, Paris", Optional.empty())),
+            new SimpleEntry<>("9",
+                    new Restaurant("Guy Savoy", "9", "18 rue Troyon, 75017, Paris", Optional.empty())),
+            new SimpleEntry<>("10", new Restaurant("Le Bristol", "10",
+                    "112, rue du Faubourg St Honoré, 8th arrondissement, Paris", Optional.empty()))));
   }
 
   /**
@@ -126,11 +126,11 @@ public class InMemRestaurantRepository implements RestaurantRepository<Restauran
   public Collection<Restaurant> findByName(String name) throws RestaurantNotFoundException {
     int noOfChars = name.length();
     Collection<Restaurant> restaurants = entities.entrySet().stream()
-        .filter(e -> e.getValue().getName().toLowerCase().contains(name.subSequence(0, noOfChars)))
-        .collect(Collectors.toList())
-        .stream()
-        .map(k -> k.getValue())
-        .collect(Collectors.toList());
+            .filter(e -> e.getValue().getName().toLowerCase().contains(name.subSequence(0, noOfChars)))
+            .collect(Collectors.toList())
+            .stream()
+            .map(k -> k.getValue())
+            .collect(Collectors.toList());
     if (restaurants != null && restaurants.isEmpty()) {
       Object[] args = {name};
       throw new RestaurantNotFoundException("restaurantNotFound", args);
